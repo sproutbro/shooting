@@ -1,6 +1,6 @@
 import EventManager from "./event/EventManager.js";
 
-import EntityManager from "./entity/entityManager.js";
+import EntityManager from "./entity/EntityManager.js";
 import InputManager from "./input/InputManager.js";
 import DrawManager from "./event/DrawManager.js";
 

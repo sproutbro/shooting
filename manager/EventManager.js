@@ -37,10 +37,11 @@ export default class EventManager {
     items.forEach((item, i) => {
       if (checkCircleCollision(item, position)) {
         if (item.value === 0) {
-          player.shootTime = 50;
+          setTimeout(() => (player.shootTime = 50), 5000);
         }
         if (item.value === 1) {
           player.radius = 20;
+          setTimeout(() => (player.radius = 5), 5000);
         }
         this.entityManager.items.splice(i, 1);
       }
