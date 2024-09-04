@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="canvas"></canvas>
+      <form method="post" id="user_form">
+        <label for="nickname">
+          <p>nickname</p>
+        </label>
+        <input type="text" name="nickname" id="nickname" />
+        <button>sumbit</button>
+      </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/js/script.js"></script>
+  </body>
+</html>
