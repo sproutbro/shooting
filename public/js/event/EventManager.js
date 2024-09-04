@@ -17,6 +17,14 @@ export default class EventManager {
     this.inputManager.mouseHandler.setOnMouseUp((position) =>
       this.setOnMouseUp(position)
     );
+
+    this.inputManager.touchHandler.setOnTouchStart((position) => {
+      this.setOnTouchStart(position);
+    });
+
+    this.inputManager.touchHandler.setOnTouchEnd(() => {
+      this.setOnTouchEnd();
+    });
   }
 
   setOnMouseDown() {
@@ -28,6 +36,20 @@ export default class EventManager {
   }
 
   setOnMouseUp() {
+    this.change({
+      name: "shootStop",
+    });
+  }
+
+  setOnTouchStart() {
+    gunshotPlay();
+    this.change({
+      name: "shoot",
+      shootPosition: this.inputManager.touchHandler.touchPosition,
+    });
+  }
+
+  setOnTouchEnd() {
     this.change({
       name: "shootStop",
     });

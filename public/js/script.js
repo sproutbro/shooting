@@ -7,8 +7,8 @@ import DrawManager from "./event/DrawManager.js";
 const $ = document.querySelector.bind(document);
 
 const canvas = $("canvas");
-canvas.width = 640;
-canvas.height = 360;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 const socket = io();
 
@@ -30,9 +30,18 @@ function init() {
 
   socket.on("state", (data) => {
     if (data.players[socket.id]?.change) {
+      let position = {};
+      if (inputManager.mouseHandler.mousePosition.x) {
+        position = inputManager.mouseHandler.mousePosition;
+      }
+
+      if (inputManager.touchHandler.touchPosition.x) {
+        position = inputManager.touchHandler.touchPosition;
+      }
+
       socket.emit("change", {
         name: "shoot",
-        shootPosition: inputManager.mouseHandler.mousePosition,
+        shootPosition: position,
       });
     }
 

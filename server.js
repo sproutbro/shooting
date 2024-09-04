@@ -50,8 +50,8 @@ io.on("connection", (socket) => {
     player.change = false;
   });
 
-  socket.on("disconnect", (socket) => {
-    console.log(`Client disconnected: ${socket.id}`);
+  socket.on("disconnect", (reason) => {
+    console.log(`Client disconnected: ${socket.id}, Reason: ${reason}`);
     delete entityManager.players[socket.id];
   });
 });

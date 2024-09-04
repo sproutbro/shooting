@@ -18,16 +18,24 @@ export default class TouchHandler {
 
   handleTouchStart(event) {
     event.preventDefault();
+    const rect = event.target.getBoundingClientRect();
     this.isTouchDown = true;
     const touch = event.touches[0];
-    this.touchPosition = { x: touch.clientX, y: touch.clientY };
+    this.touchPosition = {
+      x: touch.clientX - rect.left,
+      y: touch.clientY - rect.top,
+    };
     this.onTouchStart(this.touchPosition);
   }
 
   handleTouchMove(event) {
     event.preventDefault();
+    const rect = event.target.getBoundingClientRect();
     const touch = event.touches[0];
-    this.touchPosition = { x: touch.clientX, y: touch.clientY };
+    this.touchPosition = {
+      x: touch.clientX - rect.left,
+      y: touch.clientY - rect.top,
+    };
     this.onTouchMove(this.touchPosition);
   }
 
